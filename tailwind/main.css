@@ -1,0 +1,593 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+*, :before, :after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.25s;
+}
+
+@font-face {
+    font-family: "SR Pro";
+    src: url("../fonts/sf-pro-text_regular.ttf");
+}
+
+@font-face {
+    font-family: "SR Pro";
+    font-weight: bold;
+    src: url("../fonts/sf-pro-text_bold.woff");
+}
+
+@font-face {
+    font-family: SR Pro Semi;
+    font-weight: normal;
+    src: url("../fonts/sf-pro-text_semibold.woff2");
+}
+
+@font-face {
+    font-family: "Font Awesome 6 Free";
+    src: url("../fonts/webfonts/fa-regular-400.ttf");
+}
+
+@font-face {
+    font-family: "Font Awesome 6 Free";
+    src: url("../fonts/webfonts/fa-solid-900.ttf");
+}
+
+@font-face {
+    font-family: "Font Awesome 6 Brands";
+    src: url("../fonts/webfonts/fa-brands-400.ttf");
+}
+
+html {
+    font-family: "SR Pro", serif;
+    scroll-behavior: smooth;
+}
+
+@layer components {
+    header {
+        @apply w-full bg-gray-50/75 dark:bg-[#000000CC] fixed backdrop-blur-[20px] backdrop-saturate-[180%]
+        z-[999] h-[45px] flex flex-row justify-center
+    }
+
+    header > nav {
+        @apply 2xl:w-fit xl:w-fit lg:w-fit md:w-full sm:w-full w-full h-full flex flex-row 2xl:justify-center xl:justify-center lg:justify-center md:justify-between sm:justify-between justify-between items-start z-[999] relative
+    }
+
+    header > nav > div.menu {
+        @apply w-fit 2xl:block xl:block lg:block md:hidden sm:hidden hidden
+    }
+
+    header > nav > div.logo > a > span {
+        @apply 2xl:text-lg xl:text-lg lg:text-lg md:text-2xl sm:text-2xl text-2xl
+    }
+
+    header > nav > div.burger_menu_content > form {
+        @apply w-full border-0
+        py-3
+    }
+
+    header > nav > div.burger_menu_content > form > label > input {
+        @apply w-full text-[17px] py-3 px-4 rounded-[10px] bg-transparent focus-within:bg-[#6e6e73] text-[#fff] focus-within:placeholder-gray-200/50 placeholder-gray-900/50 dark:placeholder-gray-100/50
+        focus-within:border-transparent border-[1px] border-transparent border-solid border-b-gray-600 border-t-gray-600 outline-0 dark:border-b-gray-500 dark:border-t-gray-500
+    }
+
+    header > nav > div.burger_menu_content > ul {
+        @apply w-full
+    }
+
+    header > nav > div.burger_menu_content > ul > li {
+        @apply list-none w-full border-0 border-solid border-b-2 border-b-gray-600 dark:border-b-gray-500
+    }
+
+    header > nav > div.burger_menu_content > ul > li > a {
+        @apply block h-full no-underline text-[#f5f5f7]/75 text-xs text-left hover:text-black text-[#1d1d1f] dark:text-[#f5f5f7bf]
+        hover:border-t-[#1d1d1f] dark:hover:text-[#f5f5f7] text-[17px] py-3 hover:tracking-[2px]
+    }
+
+    header > nav > div.logo {
+        @apply 2xl:block xl:block lg:block md:block sm:block block
+    }
+
+    header > nav > div.bag {
+        @apply 2xl:block xl:block lg:block md:block sm:block block select-none cursor-pointer
+    }
+
+    header > nav > div.bag > a > span {
+        @apply 2xl:text-[15px] xl:text-[15px] lg:text-[15px] md:text-lg sm:text-lg text-lg select-none
+    }
+
+    header > nav > div.burger_menu {
+        @apply flex sm:flex md:flex lg:hidden xl:hidden 2xl:hidden border-solid border-0 border-t-2 border-transparent h-[42px] px-5 flex-col justify-center items-center cursor-pointer z-[999]
+    }
+
+    header > nav > div.burger_menu:hover > div {
+        @apply duration-500 text-black
+    }
+
+    header > nav > div.burger_menu > div {
+        @apply w-[15px] h-[1px] bg-[#1d1d1f] dark:bg-[#f5f5f7bf] my-[2.8px] rounded-[20px]
+    }
+
+    header > nav > div.menu > a {
+        @apply block h-full px-5 2xl:px-5 xl:px-5 lg:px-[19px] no-underline text-[#f5f5f7]/75 text-xs text-center leading-[40px] hover:text-black border-0 border-t-[2.5px] border-b-[2.5px] border-b-transparent  border-t-transparent border-solid
+        dark:hover:border-t-[#f5f5f7] text-[#1d1d1f] dark:text-[#f5f5f7bf]
+        hover:border-t-[#1d1d1f] dark:hover:text-[#f5f5f7]
+    }
+
+    header > nav > div.menu > a:hover span {
+        @apply dark:text-[#f5f5f7] text-black
+    }
+
+    header > nav > div.menu > a > span {
+        @apply dark:text-[#f5f5f7] text-[#000c]
+    }
+
+    header > nav > div.shopping-bag_info {
+        @apply 2xl:mr-[-116px] xl:mr-[-116px] lg:mr-auto md:mr-auto sm:mr-auto mr-auto w-full sm:w-full md:w-full lg:w-[286px] xl:w-[286px] 2xl:w-[286px] backdrop_blur bg-[#1d1d1f] dark:bg-[#f5f5f7] rounded-[0px] sm:rounded-[0px] md:rounded-[0px] lg:rounded-[20px] xl:rounded-[20px] 2xl:rounded-[20px] px-[48px] sm:px-[48px] md:px-[48px] lg:px-[20px] xl:px-[20px] 2xl:px-[20px]
+        py-0
+    }
+
+    header > nav > div.shopping-bag_info:after {
+        @apply 2xl:right-1/2 xl:right-1/2 lg:right-[18px] md:right-[20.5px] sm:right-[20.5px] right-[20.5px]
+        2xl:translate-x-1/2 xl:translate-x-1/2 lg:translate-x-0 md:translate-x-0 sm:translate-x-0
+        translate-x-0 border-b-[#1d1d1f] dark:border-b-[#f5f5f7]
+    }
+
+    header > nav > div.shopping-bag_info > span {
+        @apply dark:text-[#000c] text-[#f5f5f7] text-center py-[35px] border-0 border-solid border-b-[1px] border-b-gray-600 dark:border-b-gray-500
+    }
+    header > nav > div.shopping-bag_info > ul{
+        @apply mb-5
+    }
+    header > nav > div.shopping-bag_info > ul > li {
+        @apply list-none border-0 border-solid border-b-[1px] border-b-gray-600 dark:border-b-gray-500
+    }
+
+    header > nav > div.shopping-bag_info > ul > li > a {
+        @apply block px-[35px] py-[10px] text-[#0066cc] no-underline hover:underline
+    }
+    header>nav >div.search_bar>form{
+        @apply w-full
+    }
+    header>nav >div.search_bar>form>input#searchbarinput{
+        @apply w-full text-[16px] py-2 px-4 rounded-[20px] backdrop_blur bg-transparent dark:bg-[#6e6e73]/75 bg-gray-50/75 text-[#fff] placeholder-gray-900/75 dark:placeholder-gray-100/75
+        focus-within:bg-[#000c] focus-within:dark:bg-[#000c] focus-within:placeholder-gray-100/50 border-[1px] border-transparent border-solid border-b-gray-600/75 border-t-gray-600/75 outline-0 dark:border-b-gray-100/50 dark:border-t-gray-100/50
+    }
+}
+@layer components {
+    main {
+        @apply w-full text-[#1d1d1f] overflow-auto dark:bg-[#000c]
+    }
+
+    main > section.section1 {
+        @apply w-full 2xl:h-[624px] xl:h-[624px] lg:h-[624px] md:h-[624px] sm:h-[548px] h-[548px] bg-center bg-cover relative cursor-pointer
+    }
+
+    main > section.section2 {
+        @apply w-full 2xl:h-[624px] xl:h-[624px] lg:h-[624px] md:h-[624px] sm:h-[548px] h-[548px] bg-center bg-cover relative cursor-pointer
+        mt-3
+    }
+
+    main > section.section2 > div.slogan_white {
+        @apply top-3/4
+    }
+
+    main > section.section3 {
+        @apply w-full 2xl:h-[624px] xl:h-[624px] lg:h-[624px] md:h-[624px] sm:h-[548px] h-[548px] bg-center bg-cover relative cursor-pointer
+        mt-3
+    }
+
+    main > section.section3 > div.slogan_white > img {
+        @apply 2xl:my-0 xl:my-0 lg:my-0 md:my-0 sm:my-2 my-2
+    }
+
+    main > section.section4 {
+        @apply 2xl:w-[98%] xl:w-[98%] lg:w-[98%] md:w-[98%] sm:w-full w-full flex flex-row flex-wrap bg-blue-800 mx-auto 2xl:gap-3 xl:gap-3 lg:gap-3 md:gap-3 sm:gap-0 gap-0 mt-3 bg-transparent
+    }
+
+    main > section.section5 {
+        @apply w-full 2xl:h-[705px] xl:h-[705px] lg:h-[605px] md:h-[420.781px] sm:h-[533px] h-[533px] mt-3
+    }
+
+    main > section.section5 > div.swiper {
+        @apply h-full w-full
+    }
+
+    .swiper-button-prev, .swiper-button-next {
+        @apply dark:text-gray-200
+    }
+
+    .swiper-pagination > span.swiper-pagination-bullet {
+        @apply dark:bg-gray-300
+    }
+
+    main > section.section5 > div.swiper > div.swiper-wrapper {
+        @apply 2xl:w-[1250px] xl:w-[1250px] lg:w-[950px] md:w-[689px] sm:w-[274px] w-[274px]
+    }
+
+    main > section.section5 > div.swiper > div.swiper-wrapper > div.swiper-slide {
+        @apply bg-center bg-no-repeat 2xl:h-[667.25px] xl:h-[667.25px]
+        lg:h-[567.25px] md:h-[367.781px] relative bg-contain sm:h-[495px] h-[495px]
+    }
+
+}
+@layer components {
+    footer {
+        @apply w-full bg-[#f5f5f7] dark:bg-[#000c] dark:text-[#f5f5f7]
+    }
+
+    footer > section.footer-container {
+        @apply container mx-auto max-w-[1020px] px-5 dark:text-[#f5f5f7]
+    }
+
+    div.footer1 {
+        @apply w-full border-transparent border-0 border-b-[1px] border-solid border-b-gray-400/50 pb-4
+        pt-2
+    }
+
+    div.footer1 > p {
+        @apply my-4 text-[12px] text-[#6e6e73] dark:text-[#f5f5f7ab]
+    }
+
+    div.footer1 > p > a {
+        @apply text-[#424245] dark:text-gray-200 no-underline hover:underline
+    }
+
+    div.footer2 {
+        @apply w-full py-4 flex 2xl:flex-row xl:flex-row
+        lg:flex-row md:flex-row sm:flex-col flex-col justify-start items-start
+    }
+
+    div.footer3 {
+        @apply w-full py-4 flex flex-row justify-start items-start flex flex-col justify-start
+    }
+
+    div.footer3 > div {
+        @apply w-full
+    }
+
+    div.footer3 > div:nth-of-type(1) {
+        @apply w-full border-transparent border-0 border-b-[1px] border-solid border-b-gray-400/50
+    }
+
+    div.footer3 > div:nth-of-type(2) {
+        @apply flex flex-row flex-wrap justify-between
+    }
+
+    div.footer3 > div:nth-of-type(2) > p {
+        @apply mr-0
+    }
+
+    div.footer3 > div:nth-of-type(2) > div > a:nth-of-type(1) {
+        @apply border-0 pl-0
+    }
+
+    div.footer3 > div:nth-of-type(2) > a {
+        @apply px-0 text-[#424245] no-underline hover:underline text-[12px] my-2.5 border-0 dark:text-[#f5f5f7ab]
+    }
+
+    div.footer3 > div:nth-of-type(2) > div {
+        @apply my-2.5 w-fit text-left
+    }
+
+    div.footer3 > div:nth-of-type(2) > div > a {
+        @apply text-[#424245] no-underline hover:underline text-[12px] px-2 border-transparent border-0 border-l-[1px] border-solid border-l-gray-400/50 align-top dark:text-[#f5f5f7ab]
+    }
+
+    div.footer3 > div > p {
+        @apply my-2.5 text-[12px] text-[#6e6e73] dark:text-[#f5f5f7ab]
+    }
+
+    div.footer3 > div:nth-of-type(1) > p > a {
+        @apply text-[#0066CC] no-underline hover:underline
+    }
+
+    div.column {
+        @apply 2xl:w-1/5 xl:w-1/5 lg:w-1/5 md:w-1/5 sm:w-full w-full 2xl:my-0 xl:my-0 lg:my-0 md:my-0 sm:my-1 my-1 sm:border-transparent border-0 sm:border-b-[1px] sm:border-solid sm:border-b-gray-400/50 border-transparent border-0 border-b-[1px] border-solid border-b-gray-400/50 2xl:border-0 xl:border-0 lg:border-0 md:border-0
+        relative readonly
+    }
+
+    div.column > span.the_plus {
+        @apply absolute right-0 top-[4px] z-0 cursor-pointer text-[23px] 2xl:hidden xl:hidden lg:hidden md:hidden sm:block block text-[#1d1d1f] dark:text-[#f5f5f7ab]
+    }
+
+    div.column > h5 {
+        @apply text-[12px] font-bold text-[#1d1d1f] dark:text-[#f5f5f7ab] cursor-default
+        2xl:block xl:block lg:block md:block sm:hidden hidden cursor-pointer
+
+    }
+
+    div.column > h5:nth-of-type(1) {
+        @apply block 2xl:py-0 xl:py-0 lg:py-0 md:py-0 sm:py-2 py-2 z-10
+    }
+
+    div.column > ul {
+        @apply w-full list-none
+    }
+
+    div.column > ul > li {
+        @apply w-full text-[#424245] dark:text-[#f5f5f7ab] text-[12px] my-3 hover:underline cursor-pointer w-fit
+    }
+}
+@layer components {
+    div.Dark_mode_btn {
+        @apply z-50 bg-gray-50 w-12 h-12 rounded-full fixed 2xl:right-10
+        xl:right-10 lg:right-5 md:right-3 sm:right-3 right-3 cursor-pointer bottom-5 border-transparent border-solid border-b-2 border-t-2 border-b-[#000c] border-t-[#000c] hover:transform hover:rotate-[270deg] duration-500 overflow-hidden dark:bg-[#000c]
+        dark:border-b-white dark:border-t-white backdrop_blur
+    }
+
+    div.Dark_mode_btn > span:nth-of-type(1) {
+        @apply absolute left-1/2 top-1/2 transform_center text-[22px]
+        dark:left-[150%] text-[#000c]
+    }
+
+    div.Dark_mode_btn > span:nth-of-type(2) {
+        @apply absolute rotate-90 left-[150%] top-1/2 dark:left-1/2 transform_center text-[22px] dark:text-white
+    }
+}
+@layer utilities {
+
+    .transform_center {
+        transform: translate(-50%, -50%);
+    }
+
+    .backdrop_blur {
+        backdrop-filter: blur(20px) saturate(180%) !important;
+    }
+
+    header > nav > div.shopping-bag_info > ul > li:nth-of-type(1) > a {
+        @apply bg-[url("../images/10058.svg")] bg-no-repeat bg-left bg-[length:28px]
+    }
+
+    header > nav > div.shopping-bag_info > ul > li:nth-of-type(2) > a {
+        @apply bg-[url("../images/10059.svg")] bg-no-repeat bg-left bg-[length:28px]
+    }
+
+    header > nav > div.shopping-bag_info > ul > li:nth-of-type(3) > a {
+        @apply bg-[url("../images/10057.svg")] bg-no-repeat bg-left bg-[length:28px]
+    }
+
+    header > nav > div.shopping-bag_info > ul > li:nth-of-type(4) > a {
+        @apply bg-[url("../images/10060.svg")] bg-no-repeat bg-left bg-[length:28px]
+    }
+
+    header > nav > div.shopping-bag_info > ul > li:nth-of-type(5) > a {
+        @apply bg-[url("../images/10061.svg")] bg-no-repeat bg-left bg-[length:28px]
+    }
+    header > nav > div.shopping-bag_info > ul > li:nth-of-type(5){
+        @apply border-0
+    }
+
+    section > a.contain_link {
+        @apply block h-full w-full
+    }
+
+    div.product > a.contain_link {
+        @apply block h-full w-full
+    }
+
+    div.swiper-slide > a.contain_link {
+        @apply block h-full w-full
+    }
+
+    div.slogan_black {
+        @apply absolute transform_center left-1/2 top-1/4 text-center sm:min-w-[310px] min-w-[310px] 2xl:min-w-[499px] xl:min-w-[499px] lg:min-w-[499px] md:min-w-[499px]
+    }
+
+    div.slogan_black > h2 {
+        @apply 2xl:text-[54px] xl:text-[54px] lg:text-[54px] md:text-[54px] sm:text-[32px] text-[32px] font-semibold tracking-tight
+    }
+
+    div.slogan_black > h3 {
+        @apply 2xl:text-[28px] xl:text-[28px] lg:text-[28px] md:text-[28px] sm:text-[19px] text-[19px] font-normal tracking-tight pt-0.5
+    }
+
+    div.slogan_black > div.addlinks_black {
+        @apply pt-4
+    }
+
+    div.slogan_black > div.addlinks_black > a {
+        @apply text-[#06c] 2xl:text-[21px] xl:text-[21px] lg:text-[21px] md:text-[21px] sm:text-[17px] text-[17px] font-normal px-4 no-underline hover:underline
+    }
+
+    div.slogan_black_mini {
+        @apply absolute transform_center left-1/2 top-28 text-center min-w-[280px]
+    }
+
+    div.slogan_black_mini > h4 {
+        @apply text-[40px] font-semibold tracking-tight
+    }
+
+    div.slogan_black_mini > h5 {
+        @apply text-[21px] font-normal tracking-tight pt-0.5
+    }
+
+    div.slogan_black_mini > div.addlinks_black_mini {
+        @apply pt-4
+    }
+
+    div.slogan_black_mini > div.addlinks_black_mini > a {
+        @apply text-[#06c] text-[17px] font-normal px-4 no-underline hover:underline
+    }
+
+    div.slogan_white {
+        @apply absolute transform_center left-1/2 top-1/4 text-center text-[#f5f5f7] sm:min-w-[310px] min-w-[310px] 2xl:min-w-[499px] xl:min-w-[499px] lg:min-w-[499px] md:min-w-[499px]
+    }
+
+    div.slogan_white > h2 {
+        @apply 2xl:text-[54px] xl:text-[54px] lg:text-[54px] md:text-[54px] sm:text-[32px] text-[32px] font-semibold tracking-tight
+    }
+
+    div.slogan_white > h3 {
+        @apply 2xl:text-[28px] xl:text-[28px] lg:text-[28px] md:text-[28px] sm:text-[19px] text-[19px] font-normal tracking-tight pt-0.5 max-w-lg
+    }
+
+    div.slogan_white > h6 {
+        @apply 2xl:text-[21px] xl:text-[21px] lg:text-[21px] md:text-[21px] sm:text-[17px] text-[17px] font-normal tracking-tight pt-4
+    }
+
+    div.slogan_white > div.addlinks_white {
+        @apply pt-4
+    }
+
+    div.slogan_white > div.addlinks_white > a {
+        @apply text-[#2997ff] 2xl:text-[21px] xl:text-[21px] lg:text-[21px] md:text-[21px] sm:text-[17px] text-[17px] font-normal px-4 no-underline hover:underline
+    }
+
+    div.slogan_white_mini {
+        @apply absolute transform_center left-1/2 top-28 text-center text-[#f5f5f7] min-w-[280px]
+    }
+
+    div.slogan_white_mini > h4 {
+        @apply text-[40px] font-semibold tracking-tight
+    }
+
+    div.slogan_white_mini > h5 {
+        @apply text-[21px] font-normal tracking-tight pt-0.5
+    }
+
+    div.slogan_white_mini > div.addlinks_white_mini {
+        @apply pt-4
+    }
+
+    div.slogan_white_mini > div.addlinks_white_mini > a {
+        @apply text-[#2997ff] text-[17px] font-normal px-4 no-underline hover:underline
+    }
+
+    div.product {
+        @apply 2xl:w-[49.5%] xl:w-[49.5%] 2xl:h-[624px] xl:h-[624px] lg:h-[624px] md:h-[624px] sm:h-[548px] h-[548px] relative cursor-pointer lg:w-[49.3%] md:w-[49%] sm:w-full w-full 2xl:mb-0 xl:mb-0 lg:mb-0 md:mb-0 sm:mb-3 mb-3
+    }
+
+    div.product:nth-of-type(1) {
+        @apply bg-center bg-cover
+    }
+
+    div.product:nth-of-type(2) {
+        @apply bg-center bg-cover
+    }
+
+    div.product:nth-of-type(3) {
+        @apply bg-center bg-cover
+    }
+
+    div.product:nth-of-type(4) {
+        @apply bg-center bg-cover
+    }
+
+    div.product:nth-of-type(5) {
+        @apply bg-center bg-cover
+    }
+
+    div.product:nth-of-type(6) {
+        @apply bg-center bg-cover mb-0
+    }
+
+    div.slide1 {
+    }
+
+    div.slide2 {
+
+    }
+
+    div.slide3 {
+
+    }
+
+    div.slide3 > div.info > a > div.genre > span {
+        @apply 2xl:text-[#000c] xl:text-[#000c] lg:text-[#000c] md:text-[#000c] sm:text-[#ffffff] text-[#ffffff]
+    }
+
+    div.slide4 {
+
+    }
+
+    div.slide5 {
+
+    }
+
+    div.slide6 {
+
+    }
+
+    div.slide7 {
+
+    }
+
+    div.slide8 {
+
+    }
+
+    div.slide9 {
+
+    }
+
+    div.slide10 {
+
+    }
+
+    div.info {
+        @apply absolute 2xl:left-[68px] xl:left-[68px] lg:left-[68px] md:left-[68px] sm:left-[50%] left-[50%] 2xl:top-[85%] xl:top-[85%] lg:top-[85%] md:top-[85%] sm:top-[73%] top-[73%]
+        2xl:translate-x-0 xl:translate-x-0 lg:translate-x-0 md:translate-x-0
+        sm:translate-x-[-50%] translate-x-[-50%]
+    }
+
+    div.info > a {
+        @apply transition-all duration-300 flex 2xl:flex-row xl:flex-row
+        lg:flex-row md:flex-row sm:flex-col flex-col text-[#1d1d1f] no-underline justify-center items-center
+    }
+
+    div.stream-now {
+        @apply 2xl:w-[unset] xl:w-[unset] lg:w-[unset] md:w-[unset] sm:w-[150px] w-[150px] bg-white py-[14px] px-[22px] rounded-3xl text-[14px] font-bold hover:bg-[#000c] hover:text-white dark:bg-[#000c] dark:text-white dark:hover:bg-white dark:hover:text-[#000c]
+        2xl:order-1 xl:order-1 lg:order-1 md:order-1 sm:order-2 order-2
+    }
+
+    div.stream-now:hover > span {
+        @apply transition-all duration-100 text-white dark:text-[#000c]
+    }
+
+    div.stream-now > span {
+        @apply text-[#000c] dark:text-white
+    }
+
+    div.genre {
+        @apply 2xl:ml-8 xl:ml-8 lg:ml-8 md:ml-8 sm:ml-0 ml-0 flex 2xl:flex-row xl:flex-row
+        text-center
+        lg:flex-row md:flex-row sm:flex-col flex-col justify-center items-center content-baseline 2xl:order-2 xl:order-2 lg:order-2 md:order-2 sm:order-1 order-1
+    }
+
+    div.genre > span {
+        @apply text-white align-baseline
+        mx-0.5
+    }
+
+    div.genre > span:nth-of-type(1) {
+        @apply font-bold 2xl:text-[20px] xl:text-[20px] lg:text-[20px] md:text-[15px] sm:text-[15px]
+        text-[15px]
+    }
+
+    div.genre > span:nth-of-type(2) {
+        @apply text-[4px] 2xl:block xl:block lg:block md:block sm:hidden hidden
+    }
+
+    div.genre > span:nth-of-type(3) {
+        @apply 2xl:text-[20px] xl:text-[20px] lg:text-[20px] md:text-[15px] sm:text-[15px]
+        text-[15px]
+        2xl:my-0 xl:my-0 lg:my-0 md:my-0 sm:my-2
+        my-2 w-full
+    }
+}
+@layer utilities {
+    .readonly {
+        user-select: none;
+    }
+
+    div.column > ul {
+        @apply 2xl:h-auto xl:h-auto lg:h-auto md:h-auto sm:h-0 h-0 2xl:block xl:block lg:block md:block sm:hidden hidden
+    }
+
+    div.column > ul > li {
+        @apply 2xl:h-auto xl:h-auto lg:h-auto md:h-auto sm:h-0 h-0 2xl:my-3 xl:my-3 lg:my-3 md:my-3 sm:my-0 my-0
+    }
+}
