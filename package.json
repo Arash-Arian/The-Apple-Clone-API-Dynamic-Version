@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "json-server": "json-server --watch db.json",
     "tailwind": "npx tailwindcss -i ./tailwind/main.css -o ./css/main.css --watch"
   },
   "keywords": [],
