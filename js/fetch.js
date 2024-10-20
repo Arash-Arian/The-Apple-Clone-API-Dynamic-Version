@@ -22,4 +22,4 @@ const fetchStart = async () => {
     
 }
 
-fetchStart()
+export default fetchStart()

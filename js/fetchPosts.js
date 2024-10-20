@@ -60,17 +60,17 @@ class fetchPosts {
         const h2 = document.querySelector("section.section2>div.slogan_white>h2")
         const h3 = document.querySelector("section.section2>div.slogan_white>h3")
         const link1 = document.querySelector("section.section2>div.slogan_white>div.addlinks_white>a:nth-of-type(1)")
-        try{
+        try {
             const data = await fetch("https://api.jsonbin.io/v3/b/67130421acd3cb34a8996c13", {
                 method: "GET",
                 headers: {
                     "X-Master-Key": "$2a$10$BsyhrlJYVpg5bVNUJ0sggugnelj8xn17tP4nwHSRQaiJ4BAV7UukS",
                     "Content-Type": "application/json"
                 }
-            }).then(response =>
-            {if (!response.ok) {
-                throw new Error(response.statusText);
-            }
+            }).then(response => {
+                if (!response.ok) {
+                    throw new Error(response.statusText);
+                }
                 return response.json()
             }).then(data => {
                 const section2 = data.record.section2;
@@ -79,8 +79,7 @@ class fetchPosts {
                 h3.innerHTML = section2[0].h3
                 link1.innerHTML = section2[0].link1
             })
-        }
-        catch (e) {
+        } catch (e) {
             console.error(e.message)
         }
     }
@@ -91,17 +90,17 @@ class fetchPosts {
         const h6 = document.querySelector("section.section3>div.slogan_white>h6")
         const link1 = document.querySelector("section.section3>div.slogan_white>div.addlinks_white>a:nth-of-type(1)")
         const link2 = document.querySelector("section.section3>div.slogan_white>div.addlinks_white>a:nth-of-type(2)")
-        try{
+        try {
             const data = await fetch("https://api.jsonbin.io/v3/b/67130421acd3cb34a8996c13", {
                 method: "GET",
                 headers: {
                     "X-Master-Key": "$2a$10$BsyhrlJYVpg5bVNUJ0sggugnelj8xn17tP4nwHSRQaiJ4BAV7UukS",
                     "Content-Type": "application/json"
                 }
-            }).then(response =>
-            {if (!response.ok) {
-                throw new Error(response.statusText);
-            }
+            }).then(response => {
+                if (!response.ok) {
+                    throw new Error(response.statusText);
+                }
                 return response.json()
             }).then(data => {
                 const section3 = data.record.section3;
@@ -112,8 +111,7 @@ class fetchPosts {
                 link1.innerHTML = section3[0].link1
                 link2.innerHTML = section3[0].link2
             })
-        }
-        catch (e) {
+        } catch (e) {
             console.error(e.message)
         }
     }
@@ -319,7 +317,7 @@ class fetchPosts {
                     li[index].innerHTML = value.li
                 })
             })
-            
+
 
         } catch (e) {
             console.log(e.message);
